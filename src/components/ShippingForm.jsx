@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import CustomButton from "../components/CustomButton";
-import TextInput from "../components/TextInput";
+import CustomButton from "./CustomButton";
+import TextInput from "./TextInput";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getShippingData } from "../redux/shippingSlice";
+import "E:/Portfolio-p1/SysQube/src/App.css";
 
-const ShippingInfo = () => {
+const ShippingForm = () => {
   const nav = useNavigate();
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -15,27 +20,24 @@ const ShippingInfo = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission
+    console.log(data);
+    dispatch(getShippingData(data));
+    nav("/payment");
   };
 
   const backToCart = () => {
     nav("/cart");
   };
-  const proceedToPayment = () => {
-    nav("/payment");
-  };
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      {/* Background Blur */}
-      <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-
-      {/* Modal Content */}
-      <div className="relative bg-white w-full max-w-lg p-8 rounded-lg shadow-lg z-10">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+    <div className="inset-0 flex items-center justify-center z-50">
+      <div className="relative bg-white w-full max-w-lg p-6 md:p-8 rounded-lg shadow-lg z-10">
+        <h2 className="text-lg md:text-2xl font-bold text-center text-gray-800 mb-4 md:mb-6">
           Shipping Information
         </h2>
-        <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="space-y-4 md:space-y-5"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="flex flex-col lg:flex-row gap-4">
             <TextInput
               name="firstName"
@@ -135,19 +137,22 @@ const ShippingInfo = () => {
             error={errors.phoneNumber?.message}
           />
 
-          <div className="flex flex-col lg:flex-row gap-4">
-            <CustomButton
-              type="submit"
-              containerStyles="text-base  text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
-              title="Back to Cart"
-              onClick={backToCart()}
-            />
-            <CustomButton
-              type="submit"
-              containerStyles="text-base text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
-              title="Proceed to Payment"
-              onClick={proceedToPayment()}
-            />
+          <div className="flex flex-col md:flex-row justify-between w-full gap-4">
+            <div className="p-2 md:p-4 w-full md:w-2/5">
+              <CustomButton
+                type="button"
+                containerStyles="text-sm md:text-base text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
+                title="Back to Cart"
+                onClick={backToCart}
+              />
+            </div>
+            <div className="p-2 md:p-4 w-full md:w-3/5">
+              <CustomButton
+                type="submit"
+                containerStyles="text-sm md:text-base text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
+                title="Proceed to Payment"
+              />
+            </div>
           </div>
         </form>
       </div>
@@ -155,4 +160,4 @@ const ShippingInfo = () => {
   );
 };
 
-export default ShippingInfo;
+export default ShippingForm;

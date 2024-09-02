@@ -8,38 +8,45 @@ const Checkout = () => {
   const shippingFee = 125;
   const navigate = useNavigate();
 
-  // Calculate subtotal inside the component
   const subTotal = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
 
   const handleProceedToCheckout = () => {
-    navigate("/shippingInfo");
+    navigate("/shipping");
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg p-6">
-      <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-      <div className="flex justify-between text-gray-700">
+    <div className="max-w-lg w-full mx-auto bg-white shadow-lg rounded-lg p-6 md:p-8 lg:p-10">
+      <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">
+        Order Summary
+      </h2>
+
+      <div className="flex flex-col md:flex-row justify-between text-gray-700">
         <span>Subtotal ({cart.length} items)</span>
-        <span>Rs. {subTotal}</span>
+        <span className="text-right md:text-left">Rs. {subTotal}</span>
       </div>
-      <div className="flex justify-between text-gray-700 mt-2">
+
+      <div className="flex flex-col md:flex-row justify-between text-gray-700 mt-2">
         <span>Shipping Fee</span>
-        <span>Rs. {shippingFee}</span>
+        <span className="text-right md:text-left">Rs. {shippingFee}</span>
       </div>
-      <div className="flex mt-6 justify-between text-gray-700 mt-2">
+
+      <div className="flex flex-col md:flex-row mt-6 justify-between text-gray-700 mt-2">
         <span className="font-semibold text-xl">Total</span>
-        <span className="font-semibold text-xl">
+        <span className="font-semibold text-xl text-right md:text-left">
           Rs. {subTotal + shippingFee}
         </span>
       </div>
-      <CustomButton
-        title="Proceed To CheckOut"
-        onClick={handleProceedToCheckout}
-        containerStyles="text-base text-ascent-1 mt-6 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-lg hover:bg-rblack hover:text-white hover:rounded-lg transition duration-300"
-      />
+
+      <div className="mt-6 flex justify-center md:justify-start">
+        <CustomButton
+          title="Proceed To Checkout"
+          onClick={handleProceedToCheckout}
+          containerStyles="w-full md:w-auto text-base text-ascent-1 px-4 md:px-6 py-2 border border-[#666] rounded-lg hover:bg-rblack hover:text-white hover:rounded-lg transition duration-300"
+        />
+      </div>
     </div>
   );
 };

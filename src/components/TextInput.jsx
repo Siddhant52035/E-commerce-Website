@@ -23,7 +23,7 @@ const TextInput = React.forwardRef(
           />
         </div>
         {error && (
-          <span className="text-xs text-[#f64949fe] mt-0.5 ">{error}</span>
+          <span className="text-xs text-[#f64949fe] mt-0.5">{error}</span>
         )}
       </div>
     );

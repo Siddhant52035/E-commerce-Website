@@ -3,20 +3,20 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
-import Topbar from "./components/Topbar";
 import Cart from "./pages/Cart";
-import ShippingInfo from "./pages/ShippingInfo";
-import Payment from "./pages/PaymentInfo.jsx";
+import Shipping from "./pages/Shipping.jsx";
+import Payment from "./pages/Payment.jsx";
+import Order from "./pages/Order.jsx";
 
 function App() {
   return (
     <>
       <Routes>
         <Route element={<Home />} path="/" />
-        <Route element={<Topbar />} path="/topbar" />
         <Route element={<Cart />} path="/cart" />
+        <Route element={<Shipping />} path="/shipping" />
         <Route element={<Payment />} path="/payment" />
-        <Route element={<ShippingInfo />} path="/shippingInfo" />
+        <Route element={<Order />} path="/order" />
       </Routes>
       <ToastContainer />
     </>

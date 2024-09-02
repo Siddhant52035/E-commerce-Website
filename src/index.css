@@ -4,7 +4,7 @@
 
 ::-webkit-scrollbar {
   display: none;
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none; 
   scrollbar-width: none;
 }
 
@@ -84,7 +84,7 @@
     --color-black:36 33 36;
 
   }
-  /* //15 23 42  21 30 49*/
+
   [data-theme="dark"] {
     --color-bg: 12 12 12;
     --color-primary: 31 31 31;
@@ -92,7 +92,7 @@
     --color-ascent1: 255 255 255;
     --color-ascent2: 164 161 162;
     --color-blue: 6 90 216;
-    /* //16 176 255; */
+    
     --color-white: 255 255 255;
   }
 }

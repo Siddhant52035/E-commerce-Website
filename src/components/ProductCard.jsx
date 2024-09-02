@@ -24,28 +24,28 @@ const ProductCard = ({ product, image, price, desc, id }) => {
   };
 
   return (
-    <div className="mb-2 bg-[#C0C0C0] p-4 rounded-xl shadow-lg max-w-80">
+    <div className="mb-4 bg-primary p-4 rounded-xl shadow-lg max-w-xs sm:max-w-sm lg:max-w-md">
       {/* Product Image */}
       <div className="flex justify-center">
         <img
           src={image}
           alt="Product Image"
-          className="w-full h-40 object-cover rounded-lg"
+          className="w-full h-32 sm:h-40 lg:h-48 object-cover rounded-lg"
         />
       </div>
 
       {/* Product Details */}
       <div className="mt-4">
         {/* Product Name */}
-        <h2 className="font-medium text-lg text-gray-800">
+        <h2 className="font-medium text-md sm:text-lg lg:text-xl text-gray-800">
           {product ?? "Product Name"}
         </h2>
 
         {/* Product Price */}
-        <p className="text-xl font-bold text-blue-600 mt-2">{`Rs. ${price}`}</p>
+        <p className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 mt-2">{`Rs. ${price}`}</p>
 
         {/* Product Description */}
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-sm sm:text-base text-gray-500 mt-2">
           {desc ?? "Short description of the product goes here."}
         </p>
       </div>
@@ -55,11 +55,11 @@ const ProductCard = ({ product, image, price, desc, id }) => {
         <CustomButton
           title="Add to Cart"
           onClick={handleAddToCart}
-          containerStyles="text-base text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
+          containerStyles="text-xs sm:text-sm md:text-base text-ascent-1 px-2 sm:px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
         />
         <CustomButton
           title="Buy Now"
-          containerStyles="text-base text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
+          containerStyles="text-xs sm:text-sm md:text-base text-ascent-1 px-2 sm:px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full hover:bg-rblack hover:text-white hover:rounded-full transition duration-300"
         />
       </div>
     </div>
