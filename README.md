@@ -19,7 +19,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/Siddhant52035/E-commerce-Website.git
-cd forIng
+
 ```
 
 
@@ -28,7 +28,8 @@ cd forIng
 Install the project dependencies using npm:
 
 ```bash
-npm install
+go to the sysqube folder 
+run npm install
 ```
 
 **Running the Project**
